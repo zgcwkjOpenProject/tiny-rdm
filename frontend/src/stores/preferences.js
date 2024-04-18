@@ -51,9 +51,9 @@ const usePreferencesStore = defineStore('preferences', {
             keyIconStyle: 0,
             useSysProxy: false,
             useSysProxyHttp: false,
-            checkUpdate: true,
+            checkUpdate: false,
             skipVersion: '',
-            allowTrack: true,
+            allowTrack: false,
         },
         editor: {
             font: '',

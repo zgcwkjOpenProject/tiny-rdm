@@ -43,55 +43,6 @@ onMounted(async () => {
                 trackEvent('startup', data, true)
             })
         })
-
-        // show greetings and user behavior tracking statements
-        if (!!!prefStore.behavior.welcomed) {
-            const n = $notification.show({
-                title: () => i18n.t('dialogue.welcome.title'),
-                content: () => i18n.t('dialogue.welcome.content'),
-                // duration: 5000,
-                keepAliveOnHover: true,
-                closable: false,
-                meta: ' ',
-                action: () =>
-                    h(
-                        NSpace,
-                        {},
-                        {
-                            default: () => [
-                                h(
-                                    NButton,
-                                    {
-                                        secondary: true,
-                                        type: 'tertiary',
-                                        onClick: () => {
-                                            prefStore.setAsWelcomed(false)
-                                            n.destroy()
-                                        },
-                                    },
-                                    {
-                                        default: () => i18n.t('dialogue.welcome.reject'),
-                                    },
-                                ),
-                                h(
-                                    NButton,
-                                    {
-                                        secondary: true,
-                                        type: 'primary',
-                                        onClick: () => {
-                                            prefStore.setAsWelcomed(true)
-                                            n.destroy()
-                                        },
-                                    },
-                                    {
-                                        default: () => i18n.t('dialogue.welcome.accept'),
-                                    },
-                                ),
-                            ],
-                        },
-                    ),
-            })
-        }
     } finally {
         initializing.value = false
     }
